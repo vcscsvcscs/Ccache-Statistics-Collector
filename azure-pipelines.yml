@@ -35,7 +35,7 @@ steps:
 - script: |
     ccache -s # Show ccache stats
   displayName: "Show ccache stats"
-- task: CollectCcacheStats@1.0.5
+- task: CollectCcacheStats@1.0.1
   inputs:
     ccacheLogFile: '$(Build.SourcesDirectory)/ccache.log'
     typeTag: 'ccache-test'
