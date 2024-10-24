@@ -1,0 +1,24 @@
+{
+  "name": "collectccachestatistics",
+  "version": "1.0.0",
+  "description": "This is an Azure pipeline task that has the sole purpose of collecting Ccache statistics so it can be sent to webhook ",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [
+    "Ccache",
+    "Statistics",
+    "Collector",
+    "Azure",
+    "Pipeline",
+    "Task",
+    "Metron",
+    "KPI"
+  ],
+  "author": "Metron (Vargha Csongor Csaba)",
+  "license": "MIT",
+  "dependencies": {
+    "azure-pipelines-task-lib": "^4.17.3"
+  }
+}

@@ -1,0 +1,35 @@
+{
+    "$schema": "https://raw.githubusercontent.com/Microsoft/azure-pipelines-task-lib/master/tasks.schema.json",
+    "id": "36818b9c-0251-4b45-a01f-807a97949b42",
+    "name": "CollectCcacheStats",
+    "friendlyName": "Collect Ccache Statistics",
+    "description": "This task collects ccache statistics and saves them to a file.",
+    "category": "Utility",
+    "visibility": [
+      "Build",
+      "Release"
+    ],
+    "author": "Metron (Vargha Csongor Csaba)",
+    "version": {
+      "Major": 1,
+      "Minor": 0,
+      "Patch": 0
+    },
+    "instanceNameFormat": "Collect ccache stats from $(ccacheLogFile)",
+    "inputs": [
+      {
+        "name": "ccacheLogFile",
+        "type": "filePath",
+        "label": "Ccache Log File",
+        "defaultValue": "$(Build.SourcesDirectory)/ccache.log",
+        "required": true,
+        "helpMarkDown": "Path to the ccache log file."
+      }
+    ],
+    "execution": {
+      "Node": {
+        "target": "index.js"
+      }
+    }
+  }
+  

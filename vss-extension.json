@@ -1,0 +1,55 @@
+{
+  "manifestVersion": 1,
+  "id": "CollectCcacheStatistics",
+  "name": "Ccache Statistics Collector",
+  "version": "1.0.5",
+  "publisher": "Metron",
+  "targets": [
+    {
+      "id": "Microsoft.VisualStudio.Services"
+    }
+  ],
+  "description": "This task has the sole purpose of collecting Ccache statistics.",
+  "public": true,
+  "categories": [
+    "Azure Pipelines"
+  ],
+  "content": {
+    "details": {
+      "path": "README.md"
+    }
+  },
+  "icons": {
+    "default": "images/icon.png"
+  },
+  "files": [
+    {
+      "path": "tasks/CollectCcacheStatistics"
+    },
+    {
+      "path": "tasks/SendCcacheStatistics"
+    }
+  ],
+  "contributions": [
+    {
+      "id": "CollectCcacheStatistics",
+      "type": "ms.vss-distributed-task.task",
+      "targets": [
+        "ms.vss-distributed-task.tasks"
+      ],
+      "properties": {
+        "name": "tasks/CollectCcacheStatistics"
+      }
+    },
+    {
+      "id": "SendCcacheStatistics",
+      "type": "ms.vss-distributed-task.task",
+      "targets": [
+        "ms.vss-distributed-task.tasks"
+      ],
+      "properties": {
+        "name": "tasks/SendCcacheStatistics"
+      }
+    }
+  ]
+}

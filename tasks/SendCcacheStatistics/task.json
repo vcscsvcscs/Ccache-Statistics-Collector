@@ -1,0 +1,73 @@
+{
+  "id": "412e5946-ed5c-4652-a28b-d703cfff4ac1",
+  "name": "SendCcacheStats",
+  "friendlyName": "Send Ccache Statistics",
+  "description": "This task sends collected ccache statistics to a specified endpoint.",
+  "category": "Utility",
+  "visibility": [
+    "Build",
+    "Release"
+  ],
+  "author": "Metron (Vargha Csongor Csaba)",
+  "version": {
+    "Major": 1,
+    "Minor": 0,
+    "Patch": 0
+  },
+  "instanceNameFormat": "Send ccache stats to $(endpointUrl)",
+  "inputs": [
+    {
+      "name": "endpointUrl",
+      "type": "string",
+      "label": "Endpoint URL",
+      "defaultValue": "",
+      "required": true,
+      "helpMarkDown": "The URL of the endpoint to send the data to."
+    },
+    {
+      "name": "project",
+      "type": "string",
+      "label": "Project",
+      "defaultValue": "",
+      "required": false,
+      "helpMarkDown": "The project name for the data to be sent. Leave empty for on-premise endpoints."
+    },
+    {
+      "name": "projectCredentialsId",
+      "type": "string",
+      "label": "Project Credentials ID",
+      "defaultValue": "function_key_azure_kpi_framework",
+      "required": false,
+      "helpMarkDown": "The ID of the project credentials to retrieve the function key."
+    },
+    {
+      "name": "interpreter",
+      "type": "string",
+      "label": "Interpreter",
+      "defaultValue": "tpi_metrics",
+      "required": false,
+      "helpMarkDown": "The interpreter name for the data being sent."
+    },
+    {
+      "name": "onPremise",
+      "type": "boolean",
+      "label": "On-Premise",
+      "defaultValue": "false",
+      "required": false,
+      "helpMarkDown": "Specify if the data is being sent to an on-premise Metron endpoint."
+    },
+    {
+      "name": "ccacheStatsFile",
+      "type": "filePath",
+      "label": "Ccache Stats File",
+      "defaultValue": "",
+      "required": true,
+      "helpMarkDown": "The path to the ccache statistics file to be sent."
+    }
+  ],
+  "execution": {
+    "Node": {
+      "target": "index.js"
+    }
+  }
+}
