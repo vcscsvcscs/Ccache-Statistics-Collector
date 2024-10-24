@@ -2,7 +2,7 @@
   "manifestVersion": 1,
   "id": "CollectCcacheStatistics",
   "name": "Ccache Statistics Collector",
-  "version": "1.0.5",
+  "version": "1.0.6",
   "publisher": "Metron",
   "targets": [
     {
