@@ -24,6 +24,14 @@
         "defaultValue": "$(Build.SourcesDirectory)/ccache.log",
         "required": true,
         "helpMarkDown": "Path to the ccache log file."
+      },
+      {
+        "name": "typeTag",
+        "type": "string",
+        "label": "Tag to write into type field",
+        "defaultValue": "",
+        "required": false,
+        "helpMarkDown": "tag to write into type field"
       }
     ],
     "execution": {
