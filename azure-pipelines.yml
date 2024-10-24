@@ -8,12 +8,28 @@ trigger:
 
 pool: 
   name: CX-198
- 
-steps:
-- script: echo Hello, world!
-  displayName: 'Run a one-line script'
 
+variables:
+  - name: CCACHE_DIR
+    value: /home/vsts/.ccache
+
+steps:
 - script: |
-    echo Add other tasks to build, test, and deploy your project.
-    echo See https://aka.ms/yaml
-  displayName: 'Run a multi-line script'
+    sudo apt update
+    sudo apt install -y ccache
+    export PATH="/usr/lib/ccache:$PATH"
+    ccache -z # Reset ccache stats
+  displayName: "Install and configure ccache"
+- task: Cache@2
+  inputs:
+    key: 'ccache | "$(Agent.OS)" | **/*.cpp, **/*.h'
+    path: $(CCACHE_DIR)
+    cacheHitVar: CACHE_RESTORED
+  displayName: "Cache ccache directory"
+- script: |
+    make
+  workingDirectory: $(Build.SourcesDirectory)
+  displayName: "Build with Makefile"
+- script: |
+    ccache -s # Show ccache stats
+  displayName: "Show ccache stats"
