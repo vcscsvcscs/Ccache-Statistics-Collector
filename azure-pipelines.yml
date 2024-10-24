@@ -35,3 +35,6 @@ steps:
 - script: |
     ccache -s # Show ccache stats
   displayName: "Show ccache stats"
+- task: CollectCcacheStats@1
+  inputs:
+    ccacheLogFile: '$(Build.SourcesDirectory)/ccache.log'
