@@ -20,5 +20,8 @@
   "license": "MIT",
   "dependencies": {
     "azure-pipelines-task-lib": "^4.17.3"
+  },
+  "devDependencies": {
+    "jest": "^29.7.0"
   }
 }
