@@ -11,7 +11,9 @@ pool:
 
 variables:
   - name: CCACHE_DIR
-    value: /home/vsts/.ccache
+    value: /$(Pipeline.Workspace)/s/.ccache
+  - name: CCACHE_LOGFILE
+    value: $(Build.SourcesDirectory)/ccache.log
 
 steps:
 - script: |
